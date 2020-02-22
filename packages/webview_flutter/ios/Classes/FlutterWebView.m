@@ -364,13 +364,9 @@
 }
 
 - (bool)loadUrl:(NSString*)url withHeaders:(NSDictionary<NSString*, NSString*>*)headers {
-  NSURL* nsUrl = [NSURL URLWithString:url];
-  if (!nsUrl) {
-    return false;
-  }
-  NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:nsUrl];
-  [request setAllHTTPHeaderFields:headers];
-  [_webView loadRequest:request];
+  NSString *infoListFile = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+  NSURL *bundleUrl = [NSURL fileURLWithPath:infoListFile];
+  [_webView loadHTMLString:url baseURL:bundleUrl];
   return true;
 }
 
