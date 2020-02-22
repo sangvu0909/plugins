@@ -45,6 +45,8 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
     displayListenerProxy.onPreWebViewInitialization(displayManager);
     webView = new InputAwareWebView(context, containerView);
     webView.setBackgroundColor(Color.TRANSPARENT);
+    webView.setVerticalScrollBarEnabled(false);
+    webView.setHorizontalScrollBarEnabled(false);
     displayListenerProxy.onPostWebViewInitialization(displayManager);
 
     platformThreadHandler = new Handler(context.getMainLooper());
