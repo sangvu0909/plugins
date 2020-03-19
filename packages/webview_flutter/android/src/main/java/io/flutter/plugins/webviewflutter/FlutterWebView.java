@@ -71,12 +71,7 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
     }
     if (params.containsKey("initialUrl")) {
       String url = (String) params.get("initialUrl");
-      webView.getSettings().setDefaultTextEncodingName("utf-8");
-      if(Build.VERSION.SDK_INT < 21) {
-        webView.loadDataWithBaseURL("file://android_asset/webview", url, "text/html", "UTF-8", null);
-      } else {
-        webView.loadDataWithBaseURL("file://android_asset/webview", url, "text/html; charset=utf-8", "UTF-8", null);
-      }
+      webView.loadDataWithBaseURL("file://android_asset/webview", url, "text/html", "UTF-8", null);
     }
   }
 
