@@ -2,6 +2,7 @@
 
 The web implementation of [`video_player`][1].
 
+
 ## Usage
 
 This package is the endorsed implementation of `video_player` for the web platform since version `0.10.5`, so it gets automatically added to your application by depending on `video_player: ^0.10.5`.
@@ -26,6 +27,10 @@ The Web platform does **not** suppport `dart:io`, so attempts to create a `Video
 ## Autoplay
 Playing videos without prior interaction with the site might be prohibited
 by the browser and lead to runtime errors. See also: https://goo.gl/xX8pDD.
+
+## Mixing audio with other audio sources
+
+The `VideoPlayerOptions.mixWithOthers` option can't be implemented in web, at least at the moment. If you use this option it will be silently ignored.
 
 ## Supported Formats
 

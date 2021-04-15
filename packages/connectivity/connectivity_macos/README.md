@@ -22,4 +22,3 @@ dependencies:
 ```
 
 Refer to the `connectivity` [documentation](https://github.com/flutter/plugins/tree/master/packages/connectivity/connectivity) for more details.
-

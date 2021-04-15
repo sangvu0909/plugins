@@ -1,4 +1,4 @@
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2013 The Flutter Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'page.dart';
 
-class PaddingPage extends Page {
+class PaddingPage extends GoogleMapExampleAppPage {
   PaddingPage() : super(const Icon(Icons.map), 'Add padding to the map');
 
   @override
@@ -27,7 +27,7 @@ class MarkerIconsBody extends StatefulWidget {
 const LatLng _kMapCenter = LatLng(52.4478, -3.5402);
 
 class MarkerIconsBodyState extends State<MarkerIconsBody> {
-  GoogleMapController controller;
+  GoogleMapController? controller;
 
   EdgeInsets _padding = const EdgeInsets.all(0);
 
@@ -147,19 +147,19 @@ class MarkerIconsBodyState extends State<MarkerIconsBody> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          FlatButton(
+          TextButton(
             child: const Text("Set Padding"),
             onPressed: () {
               setState(() {
                 _padding = EdgeInsets.fromLTRB(
-                    double.tryParse(_leftController.value?.text) ?? 0,
-                    double.tryParse(_topController.value?.text) ?? 0,
-                    double.tryParse(_rightController.value?.text) ?? 0,
-                    double.tryParse(_bottomController.value?.text) ?? 0);
+                    double.tryParse(_leftController.value.text) ?? 0,
+                    double.tryParse(_topController.value.text) ?? 0,
+                    double.tryParse(_rightController.value.text) ?? 0,
+                    double.tryParse(_bottomController.value.text) ?? 0);
               });
             },
           ),
-          FlatButton(
+          TextButton(
             child: const Text("Reset Padding"),
             onPressed: () {
               setState(() {
